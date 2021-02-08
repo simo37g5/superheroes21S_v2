@@ -763,6 +763,7 @@ const superheroes = [
     },
   },
 ];
+
 //Start your code here
 
 superheroes.forEach(showProduct);
@@ -771,8 +772,11 @@ function showProduct(superheroes) {
   console.log(superheroes);
   const template = document.querySelector("template").content;
   const clone = template.cloneNode(true);
-  clone.querySelector("h1").textContent = "ID: " + superheroes.id;
-  clone.querySelector("p").textContent = "Powers: " + superheroes.powers;
+  clone.querySelector("h1").textContent = superheroes.alias;
+  clone.querySelector("img").src = superheroes.image;
+  clone.querySelector(".powers").textContent = "Powers: " + superheroes.powers;
+  clone.querySelector(".sidekick h2").textContent =
+    "Sidekick: " + superheroes.sidekick.name;
   const parent = document.querySelector("#heroes");
   parent.appendChild(clone);
 }
