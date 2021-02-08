@@ -764,3 +764,15 @@ const superheroes = [
   },
 ];
 //Start your code here
+
+superheroes.forEach(showProduct);
+
+function showProduct(superheroes) {
+  console.log(superheroes);
+  const template = document.querySelector("template").content;
+  const clone = template.cloneNode(true);
+  clone.querySelector("h1").textContent = "ID: " + superheroes.id;
+  clone.querySelector("p").textContent = "Powers: " + superheroes.powers;
+  const parent = document.querySelector("#heroes");
+  parent.appendChild(clone);
+}
